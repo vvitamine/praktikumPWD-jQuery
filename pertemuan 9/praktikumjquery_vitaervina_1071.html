@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum jQuery - Vita Ervina Dzalfa</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="page">
+
+<header class="main-header">
+    <span class="outline">PRAKTIKUM PEMROGRAMAN WEB</span>
+    <h1>Praktikum jQuery</h1>
+    <p>DOM, Efek, Interaksi & Validasi</p>
+    <p>Nama Mahasiswa: <span class="student-name">Vita Ervina Dzalfa</span></p>
+</header>
+
+<section class="card">
+    <h2 class="card-title">Profil Mahasiswa</h2>
+    <p class="card-subtitle">Contoh penggunaan jQuery untuk manipulasi DOM.</p>
+
+    <div class="profile">
+        <img src="Vita Ervina.jpeg" alt="Foto Vita Ervina Dzalfa" class="profile-photo">
+
+        <div class="profile-info">
+            <h2 id="namaProfil">Vita Ervina Dzalfa</h2>
+            <p id="deskripsiProfil">Mahasiswa Sistem Informasi yang sedang mempelajari jQuery, DOM, efek visual, interaksi, dan validasi form.</p>
+
+            <span class="tag">Sistem Informasi</span>
+            <span class="tag blue">jQuery</span>
+            <span class="tag yellow">Web Programming</span>
+
+            <div class="button-row">
+                <button class="btn" id="ubahProfil">Ubah Profil</button>
+                <button class="btn-blue btn" id="warnaProfil">Ganti Warna</button>
+                <button class="btn-yellow btn" id="resetProfil">Reset</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="card">
+    <h2 class="card-title">Latihan DOM & Efek</h2>
+    <p class="card-subtitle">Tombol berikut menggunakan fungsi jQuery untuk mengubah isi, warna, serta tampilan elemen.</p>
+
+    <div class="effect-box" id="effectBox">
+        <strong>Halo, aku sedang belajar jQuery!</strong>
+        <p id="textEffect">Bagian ini bisa diubah menggunakan manipulasi DOM.</p>
+    </div>
+
+    <div class="button-row">
+        <button class="btn" id="gantiNama">Ganti Nama</button>
+        <button class="btn-purple btn" id="tambahSkill">Tambah Skill</button>
+        <button class="btn-blue btn" id="fadeEffect">Efek Fade</button>
+        <button class="btn-yellow btn" id="slideEffect">Efek Slide</button>
+        <button class="btn" id="resetEffect">Reset</button>
+    </div>
+</section>
+
+<section class="card">
+    <h2 class="card-title">Daftar Skill</h2>
+    <p class="card-subtitle">Skill dapat ditambahkan secara interaktif.</p>
+
+    <div class="skill-list" id="skillList">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">jQuery</span>
+    </div>
+</section>
+
+<section class="card">
+    <h2 class="card-title">Mini Shop</h2>
+    <p class="card-subtitle">Contoh penerapan event, perhitungan total, diskon, dan localStorage.</p>
+
+    <div class="product-grid">
+        <div class="product">
+            <div class="product-icon">🎀</div>
+            <h3>Pink Ribbon</h3>
+            <p class="price">Rp35.000</p>
+            <button class="btn tambahProduk" data-name="Pink Ribbon" data-price="35000">Tambah</button>
+        </div>
+
+        <div class="product">
+            <div class="product-icon">👜</div>
+            <h3>Pastel Bag</h3>
+            <p class="price">Rp75.000</p>
+            <button class="btn-blue btn tambahProduk" data-name="Pastel Bag" data-price="75000">Tambah</button>
+        </div>
+
+        <div class="product">
+            <div class="product-icon">🧸</div>
+            <h3>Mini Bear</h3>
+            <p class="price">Rp45.000</p>
+            <button class="btn-yellow btn tambahProduk" data-name="Mini Bear" data-price="45000">Tambah</button>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h3>Keranjang Belanja</h3>
+
+        <div id="cartList">
+            <p>Keranjang masih kosong.</p>
+        </div>
+
+        <div class="cart-total">
+            <div class="total-row">
+                <span>Total:</span>
+                <span id="totalHarga">Rp0</span>
+            </div>
+
+            <div class="total-row discount">
+                <span>Diskon:</span>
+                <span id="diskonHarga">Rp0</span>
+            </div>
+
+            <div class="total-row final-total">
+                <span>Total Bayar:</span>
+                <span id="totalBayar">Rp0</span>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button class="btn-yellow btn" id="checkoutBtn">Checkout</button>
+            <button class="btn" id="clearCart">Kosongkan</button>
+        </div>
+    </div>
+</section>
+
+<section class="card">
+    <h2 class="card-title">Riwayat Pembelian</h2>
+    <p class="card-subtitle">Data checkout disimpan menggunakan localStorage browser.</p>
+
+    <div id="historyList">
+        <p>Belum ada riwayat pembelian.</p>
+    </div>
+</section>
+
+<section class="card">
+    <h2 class="card-title">Form Kontak</h2>
+    <p class="card-subtitle">Contoh validasi form menggunakan jQuery.</p>
+
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="contactName">Nama</label>
+            <input type="text" id="contactName" placeholder="Masukkan nama">
+        </div>
+
+        <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" placeholder="contoh@email.com">
+        </div>
+
+        <div class="form-group">
+            <label for="contactMessage">Pesan</label>
+            <textarea id="contactMessage" placeholder="Tulis pesan..."></textarea>
+        </div>
+
+        <button class="btn" type="submit">Kirim Pesan</button>
+        <div class="message error" id="contactError"></div>
+
+        <div class="message success" id="contactSuccess">
+            Pesan berhasil dikirim!
+        </div>
+    </form>
+</section>
+
+<footer>
+    Praktikum jQuery &nbsp;•&nbsp; Vita Ervina Dzalfa
+</footer>
+
+</div>
+
+<div class="modal" id="checkoutModal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 class="card-title">Data Pembeli</h2>
+            <button class="close" id="closeModal">×</button>
+        </div>
+
+        <p class="card-subtitle">Isi data berikut sebelum menyelesaikan checkout.</p>
+
+        <form id="buyerForm">
+            <div class="form-group">
+                <label for="buyerName">Nama Pembeli</label>
+                <input type="text" id="buyerName" placeholder="Nama lengkap">
+            </div>
+
+            <div class="form-group">
+                <label for="buyerAddress">Alamat</label>
+                <textarea id="buyerAddress" placeholder="Alamat lengkap"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="buyerPhone">Nomor HP</label>
+                <input type="text" id="buyerPhone" placeholder="08xxxxxxxxxx">
+            </div>
+
+            <button class="btn" type="submit">Simpan & Checkout</button>
+            <div class="message error" id="buyerError"></div>
+
+            <div class="message success" id="buyerSuccess">
+                Checkout berhasil!
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+let cart = [];
+
+const defaultName = "Vita Ervina Dzalfa";
+const defaultDescription = "Mahasiswa Sistem Informasi yang sedang mempelajari jQuery, DOM, efek visual, interaksi, dan validasi form.";
+
+const defaultSkills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "jQuery"
+];
+
+function formatRupiah(angka) {
+    return "Rp" + angka.toLocaleString("id-ID");
+}
+
+function updateCartUI() {
+    const cartList = $("#cartList");
+    cartList.empty();
+
+    if (cart.length === 0) {
+        cartList.html("<p>Keranjang masih kosong.</p>");
+        $("#totalHarga").text("Rp0");
+        $("#diskonHarga").text("Rp0");
+        $("#totalBayar").text("Rp0");
+        return;
+    }
+
+    let total = 0;
+    let totalQty = 0;
+
+    cart.forEach(function(item, index) {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        totalQty += item.qty;
+
+        const itemHTML = `
+            <div class="cart-item">
+                <div>
+                    <strong>${item.name}</strong><br>
+                    <small>${formatRupiah(item.price)} × ${item.qty}</small>
+                </div>
+
+                <div>
+                    <button class="qty-button minus" data-index="${index}">−</button>
+                    <span>${item.qty}</span>
+                    <button class="qty-button plus" data-index="${index}">+</button>
+                </div>
+            </div>
+        `;
+
+        cartList.append(itemHTML);
+    });
+
+    let diskon = 0;
+
+    if (total > 100000) {
+        diskon = total * 0.10;
+    }
+
+    const totalBayar = total - diskon;
+
+    $("#totalHarga").text(formatRupiah(total));
+    $("#diskonHarga").text(formatRupiah(diskon));
+    $("#totalBayar").text(formatRupiah(totalBayar));
+
+    $(".minus").click(function() {
+        const index = $(this).data("index");
+
+        if (cart[index].qty > 1) {
+            cart[index].qty--;
+        } else {
+            cart.splice(index, 1);
+        }
+
+        updateCartUI();
+    });
+
+    $(".plus").click(function() {
+        const index = $(this).data("index");
+        cart[index].qty++;
+        updateCartUI();
+    });
+}
+
+$(".tambahProduk").click(function() {
+    const name = $(this).data("name");
+    const price = Number($(this).data("price"));
+
+    const existing = cart.find(function(item) {
+        return item.name === name;
+    });
+
+    if (existing) {
+        existing.qty++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: 1
+        });
+    }
+
+    updateCartUI();
+});
+
+$("#clearCart").click(function() {
+    cart = [];
+    updateCartUI();
+});
+
+function simpanRiwayat(total, qty) {
+    const riwayat = JSON.parse(localStorage.getItem("riwayatBelanja")) || [];
+
+    const dataBaru = {
+        tanggal: new Date().toLocaleString("id-ID"),
+        total: total,
+        qty: qty
+    };
+
+    riwayat.push(dataBaru);
+
+    localStorage.setItem(
+        "riwayatBelanja",
+        JSON.stringify(riwayat)
+    );
+}
+
+function tampilkanRiwayat() {
+    const riwayat = JSON.parse(localStorage.getItem("riwayatBelanja")) || [];
+    const historyList = $("#historyList");
+
+    historyList.empty();
+
+    if (riwayat.length === 0) {
+        historyList.html("<p>Belum ada riwayat pembelian.</p>");
+        return;
+    }
+
+    riwayat.forEach(function(item) {
+        historyList.append(`
+            <div class="history-item">
+                <strong>${item.tanggal}</strong><br>
+                Jumlah barang: ${item.qty}<br>
+                Total pembayaran: ${formatRupiah(item.total)}
+            </div>
+        `);
+    });
+}
+
+$("#checkoutBtn").click(function() {
+    if (cart.length === 0) {
+        alert("Keranjang masih kosong.");
+        return;
+    }
+
+    $("#checkoutModal").css("display", "flex");
+    $("#buyerError").hide();
+    $("#buyerSuccess").hide();
+});
+
+$("#closeModal").click(function() {
+    $("#checkoutModal").fadeOut(200);
+});
+
+$(window).click(function(event) {
+    if (event.target.id === "checkoutModal") {
+        $("#checkoutModal").fadeOut(200);
+    }
+});
+
+$("#buyerForm").submit(function(event) {
+    event.preventDefault();
+
+    const name = $("#buyerName").val().trim();
+    const address = $("#buyerAddress").val().trim();
+    const phone = $("#buyerPhone").val().trim();
+
+    if (name.length < 3) {
+        $("#buyerError").text("Nama minimal 3 karakter.").fadeIn();
+        return;
+    }
+
+    if (address.length < 5) {
+        $("#buyerError").text("Alamat belum lengkap.").fadeIn();
+        return;
+    }
+
+    if (!/^[0-9]{10,15}$/.test(phone)) {
+        $("#buyerError").text("Nomor HP harus 10–15 angka.").fadeIn();
+        return;
+    }
+
+    let total = 0;
+    let qty = 0;
+
+    cart.forEach(function(item) {
+        total += item.price * item.qty;
+        qty += item.qty;
+    });
+
+    let diskon = 0;
+
+    if (total > 100000) {
+        diskon = total * 0.10;
+    }
+
+    const totalBayar = total - diskon;
+
+    simpanRiwayat(totalBayar, qty);
+    tampilkanRiwayat();
+
+    $("#buyerError").hide();
+
+    $("#buyerSuccess")
+        .text("Checkout berhasil! Total bayar " + formatRupiah(totalBayar))
+        .fadeIn();
+
+    cart = [];
+    updateCartUI();
+
+    setTimeout(function() {
+        $("#checkoutModal").fadeOut(300);
+        $("#buyerForm")[0].reset();
+    }, 1800);
+});
+
+$("#gantiNama").click(function() {
+    $("#namaProfil").text("Halo, aku Vita! ♡");
+    $("#textEffect").text("Nama berhasil diubah menggunakan .text().");
+});
+
+$("#ubahProfil").click(function() {
+    $("#deskripsiProfil").html(
+        "<strong>Profil diperbarui!</strong> " +
+        "Sekarang aku sedang belajar membuat website interaktif dengan jQuery."
+    );
+});
+
+$("#warnaProfil").click(function() {
+    $("#namaProfil").css("color", "#b96d96");
+    $("#deskripsiProfil").css("color", "#68879b");
+});
+
+$("#resetProfil").click(function() {
+    $("#namaProfil").text(defaultName).css("color", "#6f5269");
+    $("#deskripsiProfil").text(defaultDescription).css("color", "#827681");
+});
+
+let skillAdded = false;
+
+$("#tambahSkill").click(function() {
+    if (!skillAdded) {
+        $("#skillList").append(
+            '<span class="skill">DOM Manipulation</span>'
+        );
+
+        skillAdded = true;
+    } else {
+        $("#skillList").append(
+            '<span class="skill">UI Interaction</span>'
+        );
+    }
+});
+
+$("#fadeEffect").click(function() {
+    $("#effectBox").fadeOut(500, function() {
+        $(this).fadeIn(500);
+    });
+});
+
+$("#slideEffect").click(function() {
+    $("#effectBox").slideUp(500, function() {
+        $(this).slideDown(500);
+    });
+});
+
+$("#resetEffect").click(function() {
+    $("#effectBox").stop(true, true).show();
+
+    $("#textEffect").text(
+        "Bagian ini bisa diubah menggunakan manipulasi DOM."
+    );
+});
+
+$(".product").hover(
+    function() {
+        $(this).css(
+            "box-shadow",
+            "0 8px 22px rgba(190, 145, 175, 0.15)"
+        );
+    },
+
+    function() {
+        $(this).css("box-shadow", "none");
+    }
+);
+
+$("#contactForm").submit(function(event) {
+    event.preventDefault();
+
+    const name = $("#contactName").val().trim();
+    const email = $("#contactEmail").val().trim();
+    const message = $("#contactMessage").val().trim();
+
+    $("#contactError").hide();
+    $("#contactSuccess").hide();
+
+    if (name.length < 3) {
+        $("#contactError").text("Nama minimal 3 karakter.").fadeIn();
+        return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        $("#contactError").text("Format email belum benar.").fadeIn();
+        return;
+    }
+
+    if (message.length < 5) {
+        $("#contactError").text("Pesan minimal 5 karakter.").fadeIn();
+        return;
+    }
+
+    $("#contactSuccess")
+        .fadeIn()
+        .delay(1800)
+        .fadeOut();
+
+    $("#contactForm")[0].reset();
+});
+
+$(document).ready(function() {
+    tampilkanRiwayat();
+    updateCartUI();
+});
+</script>
+
+</body>
+</html>

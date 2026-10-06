@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum jQuery - Vita Ervina Dzalfa</title>
+    
+    <!-- Instalasi jQuery via CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            /* Latar belakang kuning pastel */
+            background-color: #FFF7AD; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+            color: #4a3b52;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+            max-width: 650px;
+        }
+
+        /* --- 1. BAGIAN DEMO PROFIL (MENURUN) --- */
+        .demo-title {
+            color: #1e3a8a;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+        }
+
+        .profile-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 25px 35px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFB3AE, #D8BFD8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .profile-info h2 {
+            margin: 0 0 5px 0;
+            font-size: 26px;
+            color: #1e3a8a;
+        }
+        .profile-info .role {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #6d5b78;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Pill Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-badge {
+            background-color: #e2e8f0;
+            color: #1e3a8a;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Jejeran Tombol di Bawah Profil */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn {
+            background-color: #89CFF0; /* Biru Pastel */
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #7abfe0; }
+        
+        /* Tombol dengan style outline (seperti Efek & Reset di gambar) */
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #1e3a8a;
+            color: #1e3a8a;
+        }
+        .btn-outline:hover {
+            background-color: #1e3a8a;
+            color: #FFF7AD;
+        }
+
+        /* --- 2. BAGIAN FORM KONTAK --- */
+        .form-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+        .form-card h3 {
+            margin-top: 0;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .form-group { margin-bottom: 15px; }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 14px;
+            background-color: #f8fafc;
+            color: #333;
+            transition: all 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #D8BFD8;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(216, 191, 216, 0.3);
+        }
+        .error-msg {
+            color: #ef4444;
+            font-size: 12px;
+            display: none;
+            margin-top: 5px;
+        }
+        .success-msg {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <!-- BAGIAN 1: PROFIL & TOMBOL (SESUAI GAMBAR) -->
+        <div>
+            <div class="demo-title">
+                <i class="fa-solid fa-circle-user"></i> Demo Profile (DOM Manipulation + Efek)
+            </div>
+            
+            <div class="profile-box" id="profileBox">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <div class="profile-info">
+                    <h2 id="profileName">Vita Ervina Dzalfa</h2>
+                    <p class="role"><i class="fa-solid fa-briefcase"></i> Mahasiswa Sistem Informasi</p>
+                    
+                    <div class="skills" id="skillList">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">jQuery</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Berjejer di Bawah Kotak -->
+            <div class="button-group">
+                <button id="btnGantiNama" class="btn">
+                    <i class="fa-solid fa-pen-to-square"></i> Ganti Nama
+                </button>
+                <button id="btnTambahSkill" class="btn">
+                    <i class="fa-solid fa-circle-plus"></i> Tambah Skill
+                </button>
+                <button id="btnAnimasi" class="btn btn-outline">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Efek Fade & Slide
+                </button>
+                <button id="btnReset" class="btn btn-outline">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- BAGIAN 2: FORM KONTAK MENURUN DI BAWAHNYA -->
+        <div class="form-card">
+            <h3><i class="fa-solid fa-envelope"></i> Form Kontak dengan Validasi jQuery</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama minimal 3 karakter">
+                    <div class="error-msg" id="errNama">Nama harus minimal 3 karakter!</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="contoh@domain.com">
+                    <div class="error-msg" id="errEmail">Masukkan email yang valid!</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea id="pesan" rows="4" placeholder="Tulis pesan minimal 10 karakter"></textarea>
+                    <div class="error-msg" id="errPesan">Pesan harus minimal 10 karakter!</div>
+                </div>
+
+                <div class="button-group" style="margin-top: 20px;">
+                    <button type="submit" class="btn">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                    <button type="button" id="btnResetForm" class="btn btn-outline">
+                        <i class="fa-solid fa-eraser"></i> Reset
+                    </button>
+                </div>
+            </form>
+            <div class="success-msg" id="successMessage">Pesan berhasil dikirim!</div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            // --- MANIPULASI DOM & EFEK SESUAI TOMBOL GAMBAR ---
+            
+            // 1. Ganti Nama
+            $('#btnGantiNama').click(function() {
+                $('#profileName').text('Vita (Edited)').css('color', '#D8BFD8');
+            });
+
+            // 2. Tambah Skill
+            $('#btnTambahSkill').click(function() {
+                $('#skillList').append('<span class="skill-badge new-skill" style="background-color: #FFB3AE; color: white;">PHP & MySQL</span>');
+            });
+
+            // 3. Efek Fade & Slide pada Kotak Profil
+            $('#btnAnimasi').click(function() {
+                $('#profileBox').fadeOut(300).fadeIn(600).slideUp(200).slideDown(300);
+            });
+
+            // 4. Reset Profil
+            $('#btnReset').click(function() {
+                $('#profileName').text('Vita Ervina Dzalfa').css('color', '#1e3a8a');
+                $('.new-skill').remove();
+            });
+
+            // --- VALIDASI FORM ---
+            
+            $('#contactForm').submit(function(e) {
+                e.preventDefault();
+                let valid = true;
+
+                if ($('#nama').val().trim().length < 3) {
+                    $('#errNama').slideDown();
+                    valid = false;
+                } else { 
+                    $('#errNama').slideUp();
+                }
+
+                let emailVal = $('#email').val().trim();
+                if (emailVal === '' || !emailVal.includes('@')) {
+                    $('#errEmail').slideDown();
+                    valid = false;
+                } else {
+                    $('#errEmail').slideUp();
+                }
+
+                if ($('#pesan').val().trim().length < 10) {
+                    $('#errPesan').slideDown();
+                    valid = false;
+                } else {
+                    $('#errPesan').slideUp();
+                }
+
+                if (valid) { 
+                    $('#successMessage').fadeIn().delay(3000).fadeOut();
+                    $('#contactForm')[0].reset(); 
+                }
+            });
+
+            $('#btnResetForm').click(function(){
+                $('#contactForm')[0].reset();
+                $('.error-msg').slideUp();
+            });
+        });
+    </script>
+</body>
+</html>
