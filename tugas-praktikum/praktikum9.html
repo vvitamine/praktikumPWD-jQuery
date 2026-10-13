@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crumbs Bakery</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="praktikum9.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-bread-slice"></i>
+        <span>Sweet Crumbs</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#produk" data-filter="all">All</a>
+        <a href="#produk" data-filter="bread">Bread</a>
+        <a href="#produk" data-filter="pastry">Pastry</a>
+        <a href="#produk" data-filter="cake">Cake</a>
+        <a href="#produk" data-filter="cookies">Cookies</a>
+    </div>
+
+    <div class="nav-actions">
+        <button id="historyBtn" class="nav-btn">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Riwayat
+        </button>
+
+        <button id="cartBtn" class="cart-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartBadge">0</span>
+        </button>
+
+        <button id="menuBtn" class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-content">
+        <div class="hero-icon">
+            <i class="fa-solid fa-wheat-awn"></i>
+        </div>
+
+        <p class="hero-label">FRESH FROM OUR OVEN</p>
+
+        <h1>
+            <span id="typingText"></span><span class="cursor">|</span>
+        </h1>
+
+        <p class="hero-desc">
+            Roti, pastry, cake, dan cookies freshly baked dengan rasa
+            yang dibuat sepenuh hati.
+        </p>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+                type="text"
+                id="searchProduk"
+                placeholder="Cari menu favoritmu..."
+            >
+        </div>
+    </div>
+</header>
+
+
+<!-- PRODUK -->
+<section class="produk-section" id="produk">
+    <div class="section-title">
+        <p>OUR MENU</p>
+        <h2>Freshly Baked For You</h2>
+        <span>Temukan camilan favoritmu di Sweet Crumbs Bakery.</span>
+    </div>
+
+    <div class="filter-buttons">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="bread">Bread</button>
+        <button class="filter" data-filter="pastry">Pastry</button>
+        <button class="filter" data-filter="cake">Cake</button>
+        <button class="filter" data-filter="cookies">Cookies</button>
+    </div>
+
+    <div class="produk-grid" id="produkGrid">
+
+        <!-- 1 -->
+        <article class="produk-card"
+            data-category="pastry"
+            data-name="Butter Croissant"
+            data-price="18000">
+            <div class="produk-img">
+                <img src="foto1.jpeg" alt="Butter Croissant">
+                <span>Pastry</span>
+            </div>
+            <div class="produk-info">
+                <h3>Butter Croissant</h3>
+                <p>Classic croissant dengan lapisan buttery yang renyah.</p>
+                <div class="produk-bottom">
+                    <strong>Rp18.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="produk-card"
+            data-category="bread"
+            data-name="Classic Sourdough"
+            data-price="35000">
+            <div class="produk-img">
+                <img src="foto2.jpeg" alt="Classic Sourdough">
+                <span>Bread</span>
+            </div>
+            <div class="produk-info">
+                <h3>Classic Sourdough</h3>
+                <p>Roti sourdough dengan tekstur lembut dan aroma khas.</p>
+                <div class="produk-bottom">
+                    <strong>Rp35.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="produk-card"
+            data-category="cake"
+            data-name="Vanilla Cupcake"
+            data-price="15000">
+            <div class="produk-img">
+                <img src="foto3.jpeg" alt="Vanilla Cupcake">
+                <span>Cake</span>
+            </div>
+            <div class="produk-info">
+                <h3>Vanilla Cupcake</h3>
+                <p>Cupcake vanilla lembut dengan frosting creamy.</p>
+                <div class="produk-bottom">
+                    <strong>Rp15.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="produk-card"
+            data-category="cookies"
+            data-name="Chocolate Cookies"
+            data-price="22000">
+            <div class="produk-img">
+                <img src="foto4.jpeg" alt="Chocolate Cookies">
+                <span>Cookies</span>
+            </div>
+            <div class="produk-info">
+                <h3>Chocolate Cookies</h3>
+                <p>Cookies cokelat dengan chocolate chips melimpah.</p>
+                <div class="produk-bottom">
+                    <strong>Rp22.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="produk-card"
+            data-category="cake"
+            data-name="Strawberry Cake"
+            data-price="45000">
+            <div class="produk-img">
+                <img src="foto5.jpeg" alt="Strawberry Cake">
+                <span>Cake</span>
+            </div>
+            <div class="produk-info">
+                <h3>Strawberry Cake</h3>
+                <p>Soft cake dengan strawberry segar dan cream.</p>
+                <div class="produk-bottom">
+                    <strong>Rp45.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="produk-card"
+            data-category="cake"
+            data-name="Chocolate Brownie"
+            data-price="28000">
+            <div class="produk-img">
+                <img src="foto6.jpeg" alt="Chocolate Brownie">
+                <span>Cake</span>
+            </div>
+            <div class="produk-info">
+                <h3>Chocolate Brownie</h3>
+                <p>Brownie fudgy dengan rasa cokelat yang intens.</p>
+                <div class="produk-bottom">
+                    <strong>Rp28.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="produk-card"
+            data-category="bread"
+            data-name="Cream Cheese Bagel"
+            data-price="25000">
+            <div class="produk-img">
+                <img src="foto7.jpeg" alt="Cream Cheese Bagel">
+                <span>Bread</span>
+            </div>
+            <div class="produk-info">
+                <h3>Cream Cheese Bagel</h3>
+                <p>Bagel chewy dengan cream cheese yang lembut.</p>
+                <div class="produk-bottom">
+                    <strong>Rp25.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="produk-card"
+            data-category="pastry"
+            data-name="Apple Pie"
+            data-price="32000">
+            <div class="produk-img">
+                <img src="foto8.jpeg" alt="Apple Pie">
+                <span>Pastry</span>
+            </div>
+            <div class="produk-info">
+                <h3>Apple Pie</h3>
+                <p>Pie renyah dengan isian apel dan cinnamon.</p>
+                <div class="produk-bottom">
+                    <strong>Rp32.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="produk-card"
+            data-category="pastry"
+            data-name="Cinnamon Roll"
+            data-price="20000">
+            <div class="produk-img">
+                <img src="foto9.jpeg" alt="Cinnamon Roll">
+                <span>Pastry</span>
+            </div>
+            <div class="produk-info">
+                <h3>Cinnamon Roll</h3>
+                <p>Roti gulung lembut dengan cinnamon dan glaze.</p>
+                <div class="produk-bottom">
+                    <strong>Rp20.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="produk-card"
+            data-category="bread"
+            data-name="Garlic Bread"
+            data-price="22000">
+            <div class="produk-img">
+                <img src="foto10.jpeg" alt="Garlic Bread">
+                <span>Bread</span>
+            </div>
+            <div class="produk-info">
+                <h3>Garlic Bread</h3>
+                <p>Roti gurih dengan garlic butter dan herbs.</p>
+                <div class="produk-bottom">
+                    <strong>Rp22.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="produk-card"
+            data-category="cake"
+            data-name="Red Velvet Cake"
+            data-price="48000">
+            <div class="produk-img">
+                <img src="foto11.jpeg" alt="Red Velvet Cake">
+                <span>Cake</span>
+            </div>
+            <div class="produk-info">
+                <h3>Red Velvet Cake</h3>
+                <p>Red velvet lembut dengan cream cheese frosting.</p>
+                <div class="produk-bottom">
+                    <strong>Rp48.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="produk-card"
+            data-category="cookies"
+            data-name="Almond Cookies"
+            data-price="24000">
+            <div class="produk-img">
+                <img src="foto12.jpeg" alt="Almond Cookies">
+                <span>Cookies</span>
+            </div>
+            <div class="produk-info">
+                <h3>Almond Cookies</h3>
+                <p>Cookies renyah dengan aroma almond yang harum.</p>
+                <div class="produk-bottom">
+                    <strong>Rp24.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="produk-card"
+            data-category="bread"
+            data-name="Banana Bread"
+            data-price="30000">
+            <div class="produk-img">
+                <img src="foto13.jpeg" alt="Banana Bread">
+                <span>Bread</span>
+            </div>
+            <div class="produk-info">
+                <h3>Banana Bread</h3>
+                <p>Banana bread lembut dengan rasa pisang yang manis.</p>
+                <div class="produk-bottom">
+                    <strong>Rp30.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="produk-card"
+            data-category="cookies"
+            data-name="Macaron Box"
+            data-price="40000">
+            <div class="produk-img">
+                <img src="foto14.jpeg" alt="Macaron Box">
+                <span>Cookies</span>
+            </div>
+            <div class="produk-info">
+                <h3>Macaron Box</h3>
+                <p>Macaron warna-warni dengan tekstur lembut dan chewy.</p>
+                <div class="produk-bottom">
+                    <strong>Rp40.000</strong>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<!-- CART -->
+<div class="overlay" id="cartOverlay"></div>
+
+<aside class="side-panel" id="cartPanel">
+    <div class="panel-head">
+        <div>
+            <p>YOUR ORDER</p>
+            <h2>Keranjang</h2>
+        </div>
+        <button class="close-btn" id="closeCart">&times;</button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+        <div class="empty-cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <p>Keranjang masih kosong.</p>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Total</span>
+            <strong id="cartTotal">Rp0</strong>
+        </div>
+        <button id="btnCheckout" class="checkout-btn">
+            Checkout <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+</aside>
+
+
+<!-- HISTORY -->
+<div class="overlay" id="historyOverlay"></div>
+
+<aside class="side-panel history-panel" id="historyPanel">
+    <div class="panel-head">
+        <div>
+            <p>YOUR ORDERS</p>
+            <h2>Riwayat Pesanan</h2>
+        </div>
+        <button class="close-btn" id="closeHistory">&times;</button>
+    </div>
+
+    <div id="historyContent"></div>
+</aside>
+
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span>Produk ditambahkan!</span>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">
+        <i class="fa-solid fa-bread-slice"></i>
+        Sweet Crumbs Bakery
+    </div>
+    <p>Freshly baked with love ♡</p>
+    <small>&copy; 2026 Sweet Crumbs Bakery</small>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="praktikum9.js"></script>
+
+</body>
+</html>
