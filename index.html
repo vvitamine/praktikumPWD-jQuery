@@ -1,13 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portofolio Vita</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="pertemuan 9/jQuery.html">jQuery</a><br>
-    <a href="pertemuan 9/praktikumjquery_vitaervina_1071.html">tugas jQuery</a><br>
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <h2 class="logo">Portofolio Vita</h2>
+        <button id="tombol-tema" class="btn-tema">Mode Gelap</button>
+    </header>
+
+    <main class="isi">
+        <!-- ===== Hero / Perkenalan dengan Efek Awan ===== -->
+        <section class="perkenalan">
+            <!-- Elemen Awan Latar Belakang -->
+            <div class="latar-awan">
+                <div class="awan awan-1"></div>
+                <div class="awan awan-2"></div>
+                <div class="awan awan-3"></div>
+            </div>
+            
+            <div class="konten-hero">
+                <div class="badge">✨ Mahasiswa Sistem Informasi</div>
+                <h1 class="judul-besar"><span id="efek-ngetik"></span><span class="kursor">|</span></h1>
+                <p class="sub-judul">Membangun pengalaman web yang estetik dan sistem fungsional.</p>
+            </div>
+        </section>
+
+        <!-- ===== Pita Pemisah ===== -->
+        <div class="pita-pemisah">
+            <div class="teks-berjalan">
+                <span>WEB DEVELOPMENT</span> ✦ <span>UI/UX DESIGN</span> ✦ <span>DATABASE MODELING</span> ✦ <span>SYSTEM ANALYSIS</span> ✦ 
+                <span>WEB DEVELOPMENT</span> ✦ <span>UI/UX DESIGN</span> ✦ <span>DATABASE MODELING</span> ✦ <span>SYSTEM ANALYSIS</span> ✦
+            </div>
+        </div>
+
+        <!-- ===== Bagian Proyek (Tanpa Foto, Pakai Shape) ===== -->
+        <section class="bagian-proyek">
+            <div class="header-proyek">
+                <h2>Proyek Saya</h2>
+                <div class="wadah-pencarian">
+                    <svg class="ikon-cari" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="cari" placeholder="Cari proyek...">
+                </div>
+            </div>
+
+            <div class="daftar-proyek">
+                <a class="kartu" href="pertemuan 9/jQuery.html">
+                    <div class="kartu-shape shape-1">
+                        <div class="elemen-bulat"></div>
+                    </div>
+                    <div class="kartu-konten">
+                        <h3>Demo Profile</h3>
+                        <p>Tugas DOM.</p>
+                    </div>
+                </a>
+
+                <a class="kartu" href="pertemuan 9/praktikumjquery_vitaervina_1071.html">
+                    <div class="kartu-shape shape-2">
+                        <div class="elemen-kotak"></div>
+                    </div>
+                    <div class="kartu-konten">
+                        <h3>Platform</h3>
+                        <p>Eksplorasi antarmuka.</p>
+                    </div>
+                </a>
+
+                <a class="kartu" href="pertemuan 11/Praktikum-kelas/pertemuan11.html">
+                    <div class="kartu-shape shape-3">
+                        <div class="elemen-segitiga"></div>
+                    </div>
+                    <div class="kartu-konten">
+                        <h3>Kelas Praktikum</h3>
+                        <p>Latihan implementasi web.</p>
+                    </div>
+                </a>
+
+                <a class="kartu" href="Pertemuan12/portal_berita.html">
+                    <div class="kartu-shape shape-4">
+                        <div class="elemen-kapsul"></div>
+                    </div>
+                    <div class="kartu-konten">
+                        <h3>Portal Berita</h3>
+                        <p>Sistem manajemen konten berita.</p>
+                    </div>
+                </a>
+
+                <a class="kartu" href="Pertemuan 11/Praktikum-mingguan/pertemuan11.html">
+                    <div class="kartu-shape shape-1">
+                        <div class="elemen-bulat"></div>
+                    </div>
+                    <div class="kartu-konten">
+                        <h3>rentalin</h3>
+                        <p>Tugas mingguan 11.</p>
+                    </div>
+                </a>
+            </div>
+            <p id="pesan-kosong" class="pesan-kosong">Proyek tidak ditemukan.</p>
+        </section>
+
+        <!-- ===== Bagian Tentang Saya ===== -->
+        <section class="tentang-saya">
+            <div class="kontainer-tentang">
+                <h2>Tentang Saya</h2>
+                <div class="grid-tentang">
+                    <div class="teks-tentang">
+                        <p>Halo! Saya <strong>Vita Ervina Dzalfa</strong>, mahasiswi program studi Sistem Informasi di Fakultas MIPA Universitas Tanjungpura, Pontianak.</p>
+                        <p>Saya memiliki minat besar pada rekayasa perangkat lunak web (HTML, CSS, JS, PHP) dan pemodelan basis data. Di luar aktivitas <i>coding</i> dan eksplorasi Laragon, saya menikmati waktu luang dengan membaca, menyanyi, memasak, atau bermain Roblox bersama teman-teman.</p>
+                    </div>
+                    <div class="info-tentang">
+                        <div class="item-info"><span>Fokus:</span> Web Dev & Pemodelan Data</div>
+                        <div class="item-info"><span>Stack:</span> PHP, JS, MySQL, CSS3</div>
+                        <div class="item-info"><span>Lokasi:</span> Pontianak, Indonesia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="konten-footer">
+            <h2 class="logo-footer">Vita Ervina Dzalfa</h2>
+            <p>&copy; 2026 Dibangun dengan 💙 dan secangkir kopi.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <a href="pertemuan 9/jQuery.html">jQuery</a>
+    <a href="pertemuan 9/praktikumjquery_vitaervina_1071.html">tugas jQuery</a>
     <a href="tugas-praktikum/praktikum9.html">tugas praktikum toko roti</a>
 </body>
 </html>
